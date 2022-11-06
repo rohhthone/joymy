@@ -1,0 +1,126 @@
+<!DOCTYPE HTML>
+<html class="void" lang="RU">
+<head>
+  <meta charset="UTF-8">
+  <meta author="Rohh Thone">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>WebPage</title>
+  <meta name="description" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.">
+  <meta name="keywords" content="">
+  <link rel="stylesheet" href="https://rohhthone.github.io/VOID/000001/ro.css"><link rel="stylesheet" href="https://rohhthone.github.io/VOID/000001/variable.css"><link rel="stylesheet" href="https://rohhthone.github.io/VOID/000001/clear.css"><link rel="stylesheet" href="https://rohhthone.github.io/VOID/000001/module.css"><link rel="stylesheet" href="https://rohhthone.github.io/VOID/000001/animation.css">
+  <script type="application/ld+json">{"@type":"Organistaion","name":"WebPage","description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.","url":"","image":"","logo":"","@context":"https://schema.org"}</script>
+</head>
+<body class="matter">
+  <style>
+  :root {--foreground: #050505;--background: #fafafa;--width: 90vw;}body {width: var(--width);}
+  #head, #nav{display: flex;}
+  #head{position: fixed; top: 0;}
+  #nav{justify-content: space-between; align-items: center; height: 64px; min-width: 100vw; background: #000; color: #1ee; box-sizing: border-box; padding: 0 5vw;}
+  #nav>h1,
+  #nav>h2{font-size: 1.5em;}
+
+  html.void{background: #070707; color: var(--background);}
+  #body{background: #111; min-height:100vh; height: auto; margin: 64px 0 0 0;}
+
+  .shop{display: flex; flex-wrap: wrap; justify-content: space-around;}
+  .shop>.product.gallery{width: 100%; height: auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; box-sizing: border-box; padding: 32px; gap: 16px;}
+  .shop>.product.gallery>.product{display: flex; align-items: center; justify-content: space-between;box-sizing: border-box; padding: 16px; flex-direction: column;}
+  .shop>.product.gallery>.product>img{ width: 100%; aspect-ratio: 1/1; object-fit: cover;}
+  .shop>.product.gallery>.product>button{height: 2em;  width: 100%; border-radius: 4px;text-align: center;}
+  .shop>.product.gallery>.product>input{height: 2em;  width: 100%;  text-align: center;}
+
+  @media screen and (max-width:100vh) {
+    .shop>.product.gallery>.product{width: 100%; aspect-ratio: 1/1;}
+  }
+  @media screen and (max-height:100vw) {
+    .shop>.product.gallery>.product{width: 30%; aspect-ratio: 3/4;}
+  }
+
+  h3{font-size: 1em;}
+  .shop>.product.gallery>.product{border: 1px solid #eee4; border-radius: 8px; box-shadow: 0 0 4px 1px #1ee;}
+  .shop>.product.gallery>.product>button{border: 1px solid #eee4; box-shadow: 0 0 0 1px #1ee;}
+  .shop>.product.gallery>.product>button:hover{border: 1px solid #eee4; box-shadow: 0 0 2px 1px #1ee; color: #000;
+  
+    background: linear-gradient(to right, #1ee, #eee);
+    background-size: 400% 100%;
+    animation: gradient 3s cubic-bezier(1, .5, .5, 1) infinite;
+  }
+  
+  
+  @keyframes gradient {
+    0% {
+      background-position: 0% 0%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 100%;
+    }
+  }
+  </style>
+  <div id="head">
+    <div id="nav">
+      <h1>JOYMY 粽子</h1>
+      <h2 class="desktop">Undefined</h2>
+    </div>
+  </div>
+  <div id="body">
+    <div class="shop">
+      <div class="product gallery">
+        <form method="POST" class="product" name="PRODUCT" onsubmit="event.preventDefault();">
+          <img width="" height="" src="https://png.pngtree.com/png-vector/20220730/ourmid/pngtree-vape-smoking-design-2022-png-image_6092862.png" alt="vape model #">
+          <input type="text" name="FLAVOUR" value="Vape №1">
+          <input type="number" name="ID" readonly value="1" hidden>
+          <input type="number" name="COST" readonly value="500" hidden>
+          <button onclick="buy()">Приобрести</button>
+        </form>
+        <form method="POST" class="product" name="PRODUCT" onsubmit="event.preventDefault();">
+          <img width="" height="" src="https://png.pngtree.com/png-vector/20220730/ourmid/pngtree-vape-smoking-design-2022-png-image_6092862.png" alt="vape model #">
+          <input type="text" name="FLAVOUR" value="Vape №1">
+          <input type="number" name="ID" readonly value="1" hidden>
+          <input type="number" name="COST" readonly value="500" hidden>
+          <button onclick="buy()">Приобрести</button>
+        </form>
+        <form method="POST" class="product" name="PRODUCT" onsubmit="event.preventDefault();">
+          <img width="" height="" src="https://png.pngtree.com/png-vector/20220730/ourmid/pngtree-vape-smoking-design-2022-png-image_6092862.png" alt="vape model #">
+          <input type="text" name="FLAVOUR" value="Vape №1">
+          <input type="number" name="ID" readonly value="1" hidden>
+          <input type="number" name="COST" readonly value="500" hidden>
+          <button onclick="buy()">Приобрести</button>
+        </form>
+        <form method="POST" class="product" name="PRODUCT" onsubmit="event.preventDefault();">
+          <img width="" height="" src="https://png.pngtree.com/png-vector/20220730/ourmid/pngtree-vape-smoking-design-2022-png-image_6092862.png" alt="vape model #">
+          <input type="text" name="FLAVOUR" value="Vape №1">
+          <input type="number" name="ID" readonly value="1" hidden>
+          <input type="number" name="COST" readonly value="500" hidden>
+          <button onclick="buy()">Приобрести</button>
+        </form>
+        <form method="POST" class="product" name="PRODUCT" onsubmit="event.preventDefault();">
+          <img width="" height="" src="https://png.pngtree.com/png-vector/20220730/ourmid/pngtree-vape-smoking-design-2022-png-image_6092862.png" alt="vape model #">
+          <input type="text" name="FLAVOUR" value="Vape №1">
+          <input type="number" name="ID" readonly value="1" hidden>
+          <input type="number" name="COST" readonly value="500" hidden>
+          <button onclick="buy()">Приобрести</button>
+        </form>
+        <form method="POST" class="product" name="PRODUCT" onsubmit="event.preventDefault();">
+          <img width="" height="" src="https://png.pngtree.com/png-vector/20220730/ourmid/pngtree-vape-smoking-design-2022-png-image_6092862.png" alt="vape model #">
+          <input type="text" name="FLAVOUR" value="Vape №1">
+          <input type="number" name="ID" readonly value="1" hidden>
+          <input type="number" name="COST" readonly value="500" hidden>
+          <button onclick="buy()">Приобрести</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <footer class="rohh thone privacy"><a href="https://rohhthone.com/">rohh</a><a href="https://rohhthone.com/privacy">privacy</a></footer>
+  <script>
+    function handleForm(event) {  } 
+    document.addEventListener('submit', handleForm);
+  function buy(){
+    alert('not working yet');
+  }
+  </script>
+</body>
+</html>
