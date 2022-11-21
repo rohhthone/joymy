@@ -5,9 +5,51 @@
     <body>
         <h1>It works</h1>
         
-        
-        <script>
 
+        <script>
+// https://rohhthone.github.io/joymy/payment/?uniquecode=F60B65D09480458F&seller_id=1122573&_dga=null
+
+var params = window
+    .location
+    .search
+    .replace('?','')
+    .split('&')
+    .reduce(
+        function(p,e){
+            var a = e.split('=');
+            p[ decodeURIComponent(a[0])] = decodeURIComponent(a[1]);
+            return p;
+        },
+        {}
+    );
+
+console.log( params['data']);
+
+var myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/json");
+
+var raw = JSON.stringify({
+  "id": "3531419",
+  "inv": "0",
+  "amount": "0.00",
+  "type_curr": "WMZ",
+  "sign": "99fe1069717542d481429778349cfd17",
+  "lang": "",
+  "uuid": "862205054491446",
+  "pos": "8"
+});
+
+var requestOptions = {
+  method: 'POST',
+  headers: myHeaders,
+  body: raw,
+  redirect: 'follow'
+};
+
+fetch("http://vm55ti.natappfree.cc/vendingmachine/payNotify", requestOptions)
+  .then(response => response.text())
+  .then(result => console.log(result))
+  .catch(error => console.log('error', error));
         </script>
 
     </body>
