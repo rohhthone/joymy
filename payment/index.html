@@ -18,7 +18,14 @@ var params = window.location.search.replace('?','').split('&').reduce(
         {}
     );
 
-console.log( params);
+console.log(params);
+
+function check(param) {
+    if(param.seller_id !== 1122573){return}
+    if(param.uniquecode !== F60B65D09480458F){return}
+    
+    
+}
 
 // var myHeaders = new Headers();
 // myHeaders.append("Content-Type", "application/json");
