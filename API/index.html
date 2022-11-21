@@ -1,0 +1,27 @@
+<html>
+    <script>
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+
+        const timeNow = Date.now();
+        console.log(timeNow);
+
+        var raw = JSON.stringify({
+        "seller_id": 1122573,
+        "timestamp": timeNow,
+        "sign": ""
+        });
+
+        var requestOptions = {
+        method: 'POST',
+        headers: myHeaders,
+        body: raw,
+        redirect: 'follow'
+        };
+
+        fetch("https://api.digiseller.ru/api/apilogin", requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
+    </script>
+</html>
