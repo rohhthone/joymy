@@ -9,12 +9,7 @@
         <script>
 // https://rohhthone.github.io/joymy/payment/?uniquecode=F60B65D09480458F&seller_id=1122573&_dga=null
 
-var params = window
-    .location
-    .search
-    .replace('?','')
-    .split('&')
-    .reduce(
+var params = window.location.search.replace('?','').split('&').reduce(
         function(p,e){
             var a = e.split('=');
             p[ decodeURIComponent(a[0])] = decodeURIComponent(a[1]);
@@ -23,7 +18,7 @@ var params = window
         {}
     );
 
-console.log( params['data']);
+console.log( params);
 
 // var myHeaders = new Headers();
 // myHeaders.append("Content-Type", "application/json");
