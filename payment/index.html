@@ -20,12 +20,15 @@ var params = window.location.search.replace('?','').split('&').reduce(
 
 console.log(params);
 
-function check(param) {
-    if(param.seller_id !== 1122573){return}
-    if(param.uniquecode !== F60B65D09480458F){return}
+function check() {
+    console.log(params.seller_id);
+    console.log(params.uniquecode);
+    if(params.seller_id != 1122573){console.log('not works'); ;return}
+    if(params.uniquecode != 'F60B65D09480458F'){console.log('not works'); ;return}
+    console.log('works');
     return true;
 }
-
+check();
 // var myHeaders = new Headers();
 // myHeaders.append("Content-Type", "application/json");
 
