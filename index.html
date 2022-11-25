@@ -180,14 +180,14 @@
     var MData = JSON.parse(machineData);
     console.log(MData.goodsList);
 
-    market.innerHTML = machineData; 
+    market.innerHTML = ''; 
 
     MData.goodsList.forEach(element => {
       // market.innerHTML += element.position;
       let el = element.position;
 
       if(el == 7){
-      market.innerHTML += '<div class="digiseller-buy-standalone" data-id="3541596" data-owner="0" data-lang="" data-img="1" data-img-size="180" data-name="1" data-price="1" data-no-price="0"></div>'; 
+      market.innerHTML += '<div class="digiseller-buy-standalone" data-id="3547675" data-owner="0" data-lang="" data-img="1" data-img-size="180" data-name="1" data-price="1" data-no-price="0"></div>'; 
       }
       if(el == 8){
       market.innerHTML += '<div class="digiseller-buy-standalone" data-id="3541596" data-owner="0" data-lang="" data-img="1" data-img-size="180" data-name="1" data-price="1" data-no-price="0"></div>'; 
