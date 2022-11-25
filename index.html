@@ -63,16 +63,12 @@
   <div id="head">
     <div id="nav">
       <h1>JOYMY 粽子</h1>
-      <h2 class="desktop">Undefined</h2>
+      <h2 class="desktop" id="uuid">Undefined</h2>
     </div>
   </div>
   <div id="body">
-    <script>!function(e){var l=function(l){return e.cookie.match(new RegExp("(?:^|; )digiseller-"+l+"=([^;]*)"))},i=l("lang"),s=l("cart_uid"),t=i?"&lang="+i[1]:"",d=s?"&cart_uid="+s[1]:"",r=e.getElementsByTagName("head")[0]||e.documentElement,n=e.createElement("link"),a=e.createElement("script");n.type="text/css",n.rel="stylesheet",n.id="digiseller-css",n.href="//shop.digiseller.ru/xml/store2_css.asp?seller_id=1122573",a.async=!0,a.id="digiseller-js",a.src="//www.digiseller.ru/store2/digiseller-api.js.asp?seller_id=1122573"+t+d,!e.getElementById(n.id)&&r.appendChild(n),!e.getElementById(a.id)&&r.appendChild(a)}(document);</script>
-
-    <span class="digiseller-body" id="digiseller-body" data-partner-id="" data-cat="0" data-logo="0" data-downmenu="0" data-purchases="0" data-langs="0" data-cart="0" data-search="0"></span>
-
     <div class="shop">
-      <div class="product gallery">
+      <div class="product gallery" id="market">
         <form method="POST" class="product" name="PRODUCT" onsubmit="event.preventDefault();">
           <img width="" height="" src="https://png.pngtree.com/png-vector/20220730/ourmid/pngtree-vape-smoking-design-2022-png-image_6092862.png" alt="vape model #">
           <input type="text" name="FLAVOUR" value="Vape №1">
@@ -125,6 +121,83 @@
   function buy(){
     alert('not working yet');
   }
+
+
+  // API
+
+  var machineID = 862205054491446;
+  var token = 0;
+  var machineData = '';
+
+  function tokenGet() {
+    var data = new FormData();
+      data.append("userName", "pay_tec");
+
+      var xhr = new XMLHttpRequest();
+      xhr.withCredentials = true;
+
+      xhr.addEventListener("readystatechange", function() {
+        if(this.readyState === 4) {
+          token = this.responseText;
+          console.log(token);
+          machineConnect();
+
+        }
+      });
+
+      xhr.open("POST", "https://tower.etek.fun/vendingmachine/token");
+
+      xhr.send(data);
+  }
+
+  function machineConnect() {
+    var data = new FormData();
+
+    var xhr = new XMLHttpRequest();
+    xhr.withCredentials = true;
+
+    xhr.addEventListener("readystatechange", function() {
+      if(this.readyState === 4) {
+        console.log(this.responseText);
+        machineData = this.responseText;
+        startPage();
+      }
+    });
+
+    xhr.open("GET", `https://tower.etek.fun/vendingmachine/goods?uuid=${machineID}`);
+    xhr.setRequestHeader("token", token);
+
+    xhr.send(data);
+  }
+
+  
+  // API
+
+  tokenGet();
+
+  function startPage() {
+    uuid.innerHTML = 'ID:' + machineID;
+    var MData = JSON.parse(machineData);
+    console.log(MData.goodsList);
+
+    market.innerHTML = machineData; 
+
+    MData.goodsList.forEach(element => {
+      // market.innerHTML += element.position;
+      let el = element.position;
+
+      if(el == 7){
+      market.innerHTML += '<div class="digiseller-buy-standalone" data-id="3541596" data-owner="0" data-lang="" data-img="1" data-img-size="180" data-name="1" data-price="1" data-no-price="0"></div>'; 
+      }
+      if(el == 8){
+      market.innerHTML += '<div class="digiseller-buy-standalone" data-id="3541596" data-owner="0" data-lang="" data-img="1" data-img-size="180" data-name="1" data-price="1" data-no-price="0"></div>'; 
+      }
+
+    });
+    !function(e){var l=function(l){return e.cookie.match(new RegExp("(?:^|; )digiseller-"+l+"=([^;]*)"))},i=l("lang"),s=l("cart_uid"),t=i?"&lang="+i[1]:"",d=s?"&cart_uid="+s[1]:"",r=e.getElementsByTagName("head")[0]||e.documentElement,n=e.createElement("link"),a=e.createElement("script");n.type="text/css",n.rel="stylesheet",n.id="digiseller-css",n.href="//shop.digiseller.ru/xml/store2_css.asp?seller_id=1122573",a.async=!0,a.id="digiseller-js",a.src="//www.digiseller.ru/store2/digiseller-api.js.asp?seller_id=1122573"+t+d,!e.getElementById(n.id)&&r.appendChild(n),!e.getElementById(a.id)&&r.appendChild(a)}(document);
+
+  }
+
   </script>
 </body>
 </html>
