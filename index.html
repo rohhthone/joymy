@@ -119,13 +119,22 @@
     function handleForm(event) {  } 
     document.addEventListener('submit', handleForm);
   function buy(){
-    alert('not working yet');
   }
 
+  var params = window.location.search.replace('?','').split('&').reduce(
+        function(p,e){
+            var a = e.split('=');
+            p[ decodeURIComponent(a[0])] = decodeURIComponent(a[1]);
+            return p;
+        },
+        {}
+    );
+
+console.log(params.uuid);
 
   // API
 
-  var machineID = 862205054491446;
+  var machineID = params.uuid;
   var token = 0;
   var machineData = '';
 
@@ -194,7 +203,7 @@
       }
 
     });
-    
+
     !function(e){var l=function(l){return e.cookie.match(new RegExp("(?:^|; )digiseller-"+l+"=([^;]*)"))},i=l("lang"),s=l("cart_uid"),t=i?"&lang="+i[1]:"",d=s?"&cart_uid="+s[1]:"",r=e.getElementsByTagName("head")[0]||e.documentElement,n=e.createElement("link"),a=e.createElement("script");n.type="text/css",n.rel="stylesheet",n.id="digiseller-css",n.href="//shop.digiseller.ru/xml/store2_css.asp?seller_id=1122573",a.async=!0,a.id="digiseller-js",a.src="//www.digiseller.ru/store2/digiseller-api.js.asp?seller_id=1122573"+t+d,!e.getElementById(n.id)&&r.appendChild(n),!e.getElementById(a.id)&&r.appendChild(a)}(document);
 
   }
