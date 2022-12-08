@@ -198,7 +198,7 @@ console.log(params.uuid);
           }
         });
 
-        xhr.open("GET", "https://tower.etek.fun/api/vendingmachine/canWork?uuid=862205054491446");
+        xhr.open("GET", `https://tower.etek.fun/api/vendingmachine/canWork?uuid=${machineID}`);
         xhr.setRequestHeader("token", token);
 
         xhr.send(data);
