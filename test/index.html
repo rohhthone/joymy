@@ -198,7 +198,7 @@ console.log(params.uuid);
           }
         });
 
-        xhr.open("GET", "https://tower.etek.fun/api/vendingmachine/canWork?uuid=862205054491446");
+        xhr.open("GET", `https://tower.etek.fun/api/vendingmachine/canWork?uuid=${machineID}`);
         xhr.setRequestHeader("token", token);
 
         xhr.send(data);
@@ -238,7 +238,7 @@ console.log(params.uuid);
           <div class="flex"><span class='pay'>599 рублей</span></div>
           <div class="comment" id="value${el}"></div>
         
-          <button id="change${el}" onclick="
+          <button id="change${el}" onclick="check(this, ${el});
           {
             console.log(this.innerHTML);
             if (this.innerHTML == 'Приобрести') {
@@ -247,7 +247,7 @@ console.log(params.uuid);
               this.style.color = 'black';
               value${el}.innerHTML = '<span>Откройте приложение Сбербанка и оплатите по номеру телефона <span>89154761051</span> с комментарием <textarea>${machineID}-${el}</textarea></span>';
               
-            check(this, ${el});
+            
 
             } else {
               this.innerHTML = 'Приобрести';
@@ -297,10 +297,11 @@ console.log(params.uuid);
   }
 
   function check(e, elpos) {
+                
+    console.log(e);
 
 
-
-                if(params.seller_id != 1122573){return}
+                // if(params.seller_id != 1122573){return}
                 // if(params.uniquecode != 'F60B65D09480458F'){return}
                 console.log('works');
 
@@ -317,7 +318,7 @@ console.log(params.uuid);
                   "type_curr": "WMZ",
                   "sign": "99fe1069717542d481429778349cfd17",
                   "lang": "",
-                  "uuid": "" + machineID + "",
+                  "uuid": "" + params.uuid + "",
                   "pos": "" + elpos + "",
                 });
                 
