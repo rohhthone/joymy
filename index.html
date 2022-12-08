@@ -184,7 +184,11 @@ console.log(params.uuid);
         xhr.addEventListener("readystatechange", function() {
           if(this.readyState === 4) {
             console.log(this.responseText);
-            if (this.responseText == 'true') {
+            // select canWork from this.responseText
+            let valueResponse = this.responseText = JSON.parse(this.responseText);
+            console.log(valueResponse.canWork);
+
+            if (valueResponse.canWork == 'true') {
               console.log('true');
               startPage();
             } else {
