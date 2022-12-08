@@ -47,9 +47,12 @@
     animation: gradient 3s cubic-bezier(1, .5, .5, 1) infinite;
   }
   
-  .flex{display: flex; white-space: nowrap;}
+  .flex{display: flex; white-space: nowrap;width: 100%;text-align: center;align-items: center;justify-content: center;}
   .comment{width: 100%; font-size: 0.8em; margin: 1em 0;}
-  textarea{font-size: 1em; width: 100%; height:min-content; resize: none; border: 1px solid #eee4; border-radius: 8px; box-shadow: 0 0 0 1px #1ee;}
+  textarea{font-size: 1em; width: 100%; height:min-content; resize: none; border: none;background-color: transparent;color: #fff;font-weight: 600;outline: none;box-shadow: none;margin: 1em 0 0 0;text-align: center;letter-spacing: 1px;height: 1em;overflow: hidden;}
+
+  .pay{font-weight: 600; color: #1ee; font-size: 1.5em;}
+  span>span{font-weight: 600; color: #1ee; font-size: 1.5em;}
 
   @keyframes gradient {
     0% {
@@ -157,7 +160,7 @@ console.log(params.uuid);
         }
       });
 
-      xhr.open("POST", "https://tower.etek.fun/vendingmachine/token");
+      xhr.open("POST", "https://tower.etek.fun/api/vendingmachine/token");
 
       xhr.send(data);
   }
@@ -172,11 +175,35 @@ console.log(params.uuid);
       if(this.readyState === 4) {
         console.log(this.responseText);
         machineData = this.responseText;
-        startPage();
+
+        var data = new FormData();
+
+        var xhr = new XMLHttpRequest();
+        xhr.withCredentials = true;
+
+        xhr.addEventListener("readystatechange", function() {
+          if(this.readyState === 4) {
+            console.log(this.responseText);
+            if (this.responseText == 'true') {
+              console.log('true');
+              startPage();
+            } else {
+              console.log('false');
+            }
+            
+          }
+        });
+
+        xhr.open("GET", "https://tower.etek.fun/api/vendingmachine/canWork?uuid=862205054491446");
+        xhr.setRequestHeader("token", token);
+
+        xhr.send(data);
+
+        
       }
     });
 
-    xhr.open("GET", `https://tower.etek.fun/vendingmachine/goods?uuid=${machineID}`);
+    xhr.open("GET", `https://tower.etek.fun/api/vendingmachine/goods?uuid=${machineID}`);
     xhr.setRequestHeader("token", token);
 
     xhr.send(data);
@@ -192,7 +219,9 @@ console.log(params.uuid);
     var MData = JSON.parse(machineData);
     console.log(MData.goodsList);
 
-    market.innerHTML = ''; 
+    market.innerHTML = '';
+    
+    
 
     MData.goodsList.forEach(element => {
       let el = element.position;
@@ -202,9 +231,9 @@ console.log(params.uuid);
           <img width="" height="" src="https://png.pngtree.com/png-vector/20220730/ourmid/pngtree-vape-smoking-design-2022-png-image_6092862.png" alt="vape model #">
           <input type="text" name="FLAVOUR" value="${el}" hidden>
           <input type="number" name="ID" readonly value="${machineID}" hidden>
-          <div class="flex"><span>999 рублей</span></div>
+          <div class="flex"><span class='pay'>599 рублей</span></div>
           <div class="comment" id="value${el}"></div>
-
+        
           <button id="change${el}" onclick="
           {
             console.log(this.innerHTML);
@@ -212,7 +241,7 @@ console.log(params.uuid);
               this.innerHTML = 'Скопировать';
               this.style.backgroundColor = 'green';
               this.style.color = 'black';
-              value${el}.innerHTML = '<span>Откройте приложение Сбербанка и оплатите по номеру телефона +79313439137 с комментарием <textarea>${machineID}-${el}</textarea></span>';
+              value${el}.innerHTML = '<span>Откройте приложение Сбербанка и оплатите по номеру телефона <span>89154761051</span> с комментарием <textarea>${machineID}-${el}</textarea></span>';
             } else {
               this.innerHTML = 'Приобрести';
               this.style.backgroundColor = 'white';
