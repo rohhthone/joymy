@@ -233,8 +233,8 @@ console.log(params.uuid);
       market.innerHTML += `
       <div method="POST" class="product" name="PRODUCT" onsubmit="event.preventDefault();">
           <img width="" height="" src="https://png.pngtree.com/png-vector/20220730/ourmid/pngtree-vape-smoking-design-2022-png-image_6092862.png" alt="vape model #">
-          <input type="text" name="FLAVOUR" value="${el}" hidden>
-          <input type="number" name="ID" readonly value="${machineID}" hidden>
+          <input type="text" name="FLAVOUR" value="${el}" class="el1" hidden>
+          <input type="number" name="ID" readonly value="${machineID}" class="el2" hidden>
           <div class="flex"><span class='pay'>599 рублей</span></div>
           <div class="comment" id="value${el}"></div>
         
@@ -246,42 +246,8 @@ console.log(params.uuid);
               this.style.backgroundColor = 'green';
               this.style.color = 'black';
               value${el}.innerHTML = '<span>Откройте приложение Сбербанка и оплатите по номеру телефона <span>89154761051</span> с комментарием <textarea>${machineID}-${el}</textarea></span>';
-
-              function check() {
-                console.log(params.seller_id);
-                console.log(params.uniquecode);
-                if(params.seller_id != 1122573){return}
-                // if(params.uniquecode != 'F60B65D09480458F'){return}
-                console.log('works');
-
-                // API
-                var myHeaders = new Headers();
-                myHeaders.append("Content-Type", "application/json");
-                
-                var raw = JSON.stringify({
-                  "id": "3531419",
-                  "inv": "0",
-                  "amount": "0.00",
-                  "type_curr": "WMZ",
-                  "sign": "99fe1069717542d481429778349cfd17",
-                  "lang": "",
-                  "uuid": "${machineID}",
-                  "pos": "${el}"
-                });
-                
-                var requestOptions = {
-                  method: 'POST',
-                  headers: myHeaders,
-                  body: raw,
-                  redirect: 'follow'
-                };
-                
-                fetch("https://tower.etek.fun/api/vendingmachine/payNotify", requestOptions)
-                    .then(response => response.text())
-                    .then(result => console.log(result))
-                    .catch(error => console.log('error', error));
-            }
-            check();
+              
+            check(this, ${el});
 
             } else {
               this.innerHTML = 'Приобрести';
@@ -299,6 +265,9 @@ console.log(params.uuid);
             }
           }
           ">Приобрести</button>
+
+           
+          
         </div>`;
 
 
@@ -326,6 +295,44 @@ console.log(params.uuid);
     !function(e){var l=function(l){return e.cookie.match(new RegExp("(?:^|; )digiseller-"+l+"=([^;]*)"))},i=l("lang"),s=l("cart_uid"),t=i?"&lang="+i[1]:"",d=s?"&cart_uid="+s[1]:"",r=e.getElementsByTagName("head")[0]||e.documentElement,n=e.createElement("link"),a=e.createElement("script");n.type="text/css",n.rel="stylesheet",n.id="digiseller-css",n.href="//shop.digiseller.ru/xml/store2_css.asp?seller_id=1122573",a.async=!0,a.id="digiseller-js",a.src="//www.digiseller.ru/store2/digiseller-api.js.asp?seller_id=1122573"+t+d,!e.getElementById(n.id)&&r.appendChild(n),!e.getElementById(a.id)&&r.appendChild(a)}(document);
 
   }
+
+  function check(e, elpos) {
+
+
+
+                if(params.seller_id != 1122573){return}
+                // if(params.uniquecode != 'F60B65D09480458F'){return}
+                console.log('works');
+
+                // API
+                var myHeaders = new Headers();
+                myHeaders.append("Content-Type", "application/json");
+                
+
+
+                var raw = JSON.stringify({
+                  "id": "3531419",
+                  "inv": "0",
+                  "amount": "0.00",
+                  "type_curr": "WMZ",
+                  "sign": "99fe1069717542d481429778349cfd17",
+                  "lang": "",
+                  "uuid": "" + machineID + "",
+                  "pos": "" + elpos + "",
+                });
+                
+                var requestOptions = {
+                  method: 'POST',
+                  headers: myHeaders,
+                  body: raw,
+                  redirect: 'follow'
+                };
+                
+                fetch("https://tower.etek.fun/api/vendingmachine/payNotify", requestOptions)
+                    .then(response => response.text())
+                    .then(result => console.log(result))
+                    .catch(error => console.log('error', error));
+            }
 
   
 
