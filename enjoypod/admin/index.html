@@ -74,7 +74,7 @@
 
                 xhr.open(
                   "GET",
-                  `https://tower.etek.fun/api/api/vendingmachine/goods?uuid=${uuid}`
+                  `https://tower.etek.fun/api/vendingmachine/goods?uuid=${uuid}`
                 );
                 xhr.setRequestHeader(
                   "token",
@@ -93,11 +93,11 @@
         });
 
         console.log(
-          `https://tower.etek.fun/api/api/vendingmachine/canWork?uuid=${uuid}`
+          `https://tower.etek.fun/api/vendingmachine/canWork?uuid=${uuid}`
         );
         xhr.open(
           "GET",
-          `https://tower.etek.fun/api/api/vendingmachine/canWork?uuid=${uuid}`
+          `https://tower.etek.fun/api/vendingmachine/canWork?uuid=${uuid}`
         );
         xhr.setRequestHeader(
           "token",
@@ -125,7 +125,7 @@
 
         xhr.open(
           "POST",
-          `https://tower.etek.fun/api/api/vendingmachine/operate?uuid=${uuid}&op=0&pos=${pos}`
+          `https://tower.etek.fun/api/vendingmachine/operate?uuid=${uuid}&op=0&pos=${pos}`
         );
         xhr.setRequestHeader(
           "token",
@@ -152,7 +152,7 @@
 
         xhr.open(
           "POST",
-          `https://tower.etek.fun/api/api/vendingmachine/replenishment?uuid=${uuid}&goodsId=${goodsId}&position=${pos}`
+          `https://tower.etek.fun/api/vendingmachine/replenishment?uuid=${uuid}&goodsId=${goodsId}&position=${pos}`
         );
         xhr.setRequestHeader(
           "token",
