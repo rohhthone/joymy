@@ -220,6 +220,35 @@
         }
       }
     </style>
+    <script>
+      !(function (e) {
+        var l = function (l) {
+            return e.cookie.match(
+              new RegExp("(?:^|; )digiseller-" + l + "=([^;]*)")
+            );
+          },
+          i = l("lang"),
+          s = l("cart_uid"),
+          t = i ? "?lang=" + i[1] : "",
+          d = s ? "&cart_uid=" + s[1] : "",
+          r = e.getElementsByTagName("head")[0] || e.documentElement,
+          n = e.createElement("link"),
+          a = e.createElement("script");
+        (n.type = "text/css"),
+          (n.rel = "stylesheet"),
+          (n.id = "digiseller-css"),
+          (n.href =
+            "//shop.digiseller.ru/xml/store2_css.asp?seller_id=1122573"),
+          (a.async = !0),
+          (a.id = "digiseller-js"),
+          (a.src =
+            "//www.digiseller.ru/store2/digiseller-api.js.asp?seller_id=1122573" +
+            t +
+            d),
+          !e.getElementById(n.id) && r.appendChild(n),
+          !e.getElementById(a.id) && r.appendChild(a);
+      })(document);
+    </script>
     <div id="head">
       <div id="nav">
         <h1>ENJOY POD</h1>
@@ -229,6 +258,17 @@
     <div id="body">
       <div class="shop">
         <div class="product gallery" id="market">
+          <div
+            class="digiseller-buy-standalone"
+            data-id="3541596"
+            data-owner="0"
+            data-lang=""
+            data-img="1"
+            data-img-size="180"
+            data-name="1"
+            data-price="1"
+            data-no-price="0"
+          ></div>
           <!-- <form method="POST" class="product" name="PRODUCT" onsubmit="event.preventDefault();">
           <img width="" height="" src="https://png.pngtree.com/png-vector/20220730/ourmid/pngtree-vape-smoking-design-2022-png-image_6092862.png" alt="vape model #">
           <input type="text" name="FLAVOUR" value="Vape №1">
@@ -382,79 +422,76 @@
         var MData = JSON.parse(machineData);
         console.log(MData.goodsList);
 
-        market.innerHTML = "";
+        // market.innerHTML = '';
 
-        MData.goodsList.forEach((element) => {
-          let el = element.position;
+        // MData.goodsList.forEach(element => {
+        //   let el = element.position;
 
-          market.innerHTML += `
-      <div method="POST" class="product" name="PRODUCT" onsubmit="event.preventDefault();">
-          <img width="" height="" src="https://png.pngtree.com/png-vector/20220730/ourmid/pngtree-vape-smoking-design-2022-png-image_6092862.png" alt="vape model #">
-          <input type="text" name="FLAVOUR" value="${el}" hidden>
-          <input type="number" name="ID" readonly value="${machineID}" hidden>
-          <div class="flex"><span class='pay'>1 рубль</span></div>
-          <div class="comment" id="value${el}"></div>
-        
-          <button id="change${el}" onclick="window.location.href = 'https://www.digiseller.market/asp2/pay_wm.asp?id_d=3547675&lang=ru-RU';">Приобрести</button>
-        </div>`;
+        // market.innerHTML += `
+        // <div method="POST" class="product" name="PRODUCT" onsubmit="
+        // event.preventDefault();">
+        //     <img width="" height="" src="https://png.pngtree.com/png-vector/20220730/ourmid/pngtree-vape-smoking-design-2022-png-image_6092862.png" alt="vape model #">
+        //     <input type="text" name="FLAVOUR" value="${el}" hidden>
+        //     <input type="number" name="ID" readonly value="${machineID}" hidden>
+        //     <div class="flex"><span class='pay'>599 рублей</span></div>
+        //     <div class="comment" id="value${el}"></div>
 
-          console.log(el);
-          // if(el == 0){
-          // market.innerHTML += '<div class="digiseller-buy-standalone" data-id="3552302" data-owner="0" data-lang="" data-img="1" data-img-size="180" data-name="1" data-price="1" data-no-price="0"></div>';
-          // }
-          // if(el == 1){
-          // market.innerHTML += '<div class="digiseller-buy-standalone" data-id="3552302" data-owner="0" data-lang="" data-img="1" data-img-size="180" data-name="1" data-price="1" data-no-price="0"></div>';
-          // }
-          // if(el == 2){
-          // market.innerHTML += '<div class="digiseller-buy-standalone" data-id="3552302" data-owner="0" data-lang="" data-img="1" data-img-size="180" data-name="1" data-price="1" data-no-price="0"></div>';
-          // }
-          // if(el == 3){
-          // market.innerHTML += '<div class="digiseller-buy-standalone" data-id="3552302" data-owner="0" data-lang="" data-img="1" data-img-size="180" data-name="1" data-price="1" data-no-price="0"></div>';
-          // }
-          // if(el == 4){
-          // market.innerHTML += '<div class="digiseller-buy-standalone" data-id="3552301" data-owner="0" data-lang="" data-img="1" data-img-size="180" data-name="1" data-price="1" data-no-price="0"></div>';
-          // }
-          // if(el == 5){
-          // market.innerHTML += '<div class="digiseller-buy-standalone" data-id="3548068" data-owner="0" data-lang="" data-img="1" data-img-size="180" data-name="1" data-price="1" data-no-price="0"></div>';
-          // }
-          // if(el == 6){
-          // market.innerHTML += '<div class="digiseller-buy-standalone" data-id="3548051" data-owner="0" data-lang="" data-img="1" data-img-size="180" data-name="1" data-price="1" data-no-price="0"></div>';
-          // }
-          // if(el == 7){
-          // market.innerHTML += '<div class="digiseller-buy-standalone" data-id="3547675" data-owner="0" data-lang="" data-img="1" data-img-size="180" data-name="1" data-price="1" data-no-price="0"></div>';
-          // }
-          // if(el == 8){
-          // market.innerHTML += '<div class="digiseller-buy-standalone" data-id="3541596" data-owner="0" data-lang="" data-img="1" data-img-size="180" data-name="1" data-price="1" data-no-price="0"></div>';
-          // }
-        });
+        //     <button id="change${el}" onclick="
+        //     {
+        //       console.log(this.innerHTML);
+        //       if (this.innerHTML == 'Приобрести') {
+        //         this.innerHTML = 'Скопировать';
+        //         this.style.backgroundColor = 'green';
+        //         this.style.color = 'black';
+        //         value${el}.innerHTML = '<span>Откройте приложение Сбербанка и оплатите по номеру телефона <span>89154761051</span> с комментарием <textarea>${machineID}-${el}</textarea></span>';
+        //       } else {
+        //         this.innerHTML = 'Приобрести';
+        //         this.style.backgroundColor = 'white';
+        //         this.style.color = 'black';
 
-        !(function (e) {
-          var l = function (l) {
-              return e.cookie.match(
-                new RegExp("(?:^|; )digiseller-" + l + "=([^;]*)")
-              );
-            },
-            i = l("lang"),
-            s = l("cart_uid"),
-            t = i ? "&lang=" + i[1] : "",
-            d = s ? "&cart_uid=" + s[1] : "",
-            r = e.getElementsByTagName("head")[0] || e.documentElement,
-            n = e.createElement("link"),
-            a = e.createElement("script");
-          (n.type = "text/css"),
-            (n.rel = "stylesheet"),
-            (n.id = "digiseller-css"),
-            (n.href =
-              "//shop.digiseller.ru/xml/store2_css.asp?seller_id=1122573"),
-            (a.async = !0),
-            (a.id = "digiseller-js"),
-            (a.src =
-              "//www.digiseller.ru/store2/digiseller-api.js.asp?seller_id=1122573" +
-              t +
-              d),
-            !e.getElementById(n.id) && r.appendChild(n),
-            !e.getElementById(a.id) && r.appendChild(a);
-        })(document);
+        //         console.log(value${el}.getElementsByTagName('span')[0].getElementsByTagName('textarea')[0].innerHTML);
+
+        //         value${el}.getElementsByTagName('span')[0].getElementsByTagName('textarea')[0].select();
+        //         value${el}.getElementsByTagName('span')[0].getElementsByTagName('textarea')[0].setSelectionRange(0, 99999);
+
+        //         navigator.clipboard.writeText(value${el}.getElementsByTagName('span')[0].getElementsByTagName('textarea')[0].value);
+
+        //         value${el}.innerHTML = '<span>Скопировано в буфер обмена</span>';
+        //       }
+        //     }
+        //     ">Приобрести</button>
+        //   </div>`;
+
+        // console.log(el);
+        // if(el == 0){
+        // market.innerHTML += '<div class="digiseller-buy-standalone" data-id="3552302" data-owner="0" data-lang="" data-img="1" data-img-size="180" data-name="1" data-price="1" data-no-price="0"></div>';
+        // }
+        // if(el == 1){
+        // market.innerHTML += '<div class="digiseller-buy-standalone" data-id="3552302" data-owner="0" data-lang="" data-img="1" data-img-size="180" data-name="1" data-price="1" data-no-price="0"></div>';
+        // }
+        // if(el == 2){
+        // market.innerHTML += '<div class="digiseller-buy-standalone" data-id="3552302" data-owner="0" data-lang="" data-img="1" data-img-size="180" data-name="1" data-price="1" data-no-price="0"></div>';
+        // }
+        // if(el == 3){
+        // market.innerHTML += '<div class="digiseller-buy-standalone" data-id="3552302" data-owner="0" data-lang="" data-img="1" data-img-size="180" data-name="1" data-price="1" data-no-price="0"></div>';
+        // }
+        // if(el == 4){
+        // market.innerHTML += '<div class="digiseller-buy-standalone" data-id="3552301" data-owner="0" data-lang="" data-img="1" data-img-size="180" data-name="1" data-price="1" data-no-price="0"></div>';
+        // }
+        // if(el == 5){
+        // market.innerHTML += '<div class="digiseller-buy-standalone" data-id="3548068" data-owner="0" data-lang="" data-img="1" data-img-size="180" data-name="1" data-price="1" data-no-price="0"></div>';
+        // }
+        // if(el == 6){
+        // market.innerHTML += '<div class="digiseller-buy-standalone" data-id="3548051" data-owner="0" data-lang="" data-img="1" data-img-size="180" data-name="1" data-price="1" data-no-price="0"></div>';
+        // }
+        // if(el == 7){
+        // market.innerHTML += '<div class="digiseller-buy-standalone" data-id="3547675" data-owner="0" data-lang="" data-img="1" data-img-size="180" data-name="1" data-price="1" data-no-price="0"></div>';
+        // }
+        // if(el == 8){
+        // market.innerHTML += '<div class="digiseller-buy-standalone" data-id="3541596" data-owner="0" data-lang="" data-img="1" data-img-size="180" data-name="1" data-price="1" data-no-price="0"></div>';
+        // }
+
+        // });
       }
     </script>
   </body>
