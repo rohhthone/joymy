@@ -315,7 +315,7 @@
           }
         });
 
-        xhr.open("POST", "https://tower.etek.fun/api/api/vendingmachine/token");
+        xhr.open("POST", "https://tower.etek.fun/api/vendingmachine/token");
 
         xhr.send(data);
       }
@@ -356,7 +356,7 @@
 
             xhr.open(
               "GET",
-              `https://tower.etek.fun/api/api/vendingmachine/canWork?uuid=${machineID}`
+              `https://tower.etek.fun/api/vendingmachine/canWork?uuid=${machineID}`
             );
             xhr.setRequestHeader("token", token);
 
@@ -366,7 +366,7 @@
 
         xhr.open(
           "GET",
-          `https://tower.etek.fun/api/api/vendingmachine/goods?uuid=${machineID}`
+          `https://tower.etek.fun/api/vendingmachine/goods?uuid=${machineID}`
         );
         xhr.setRequestHeader("token", token);
 
