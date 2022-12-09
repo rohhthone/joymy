@@ -49,7 +49,7 @@ function check() {
       redirect: 'follow'
     };
     
-    fetch("https://tower.etek.fun/vendingmachine/payNotify", requestOptions)
+    fetch("https://tower.etek.fun/api/vendingmachine/payNotify", requestOptions)
         .then(response => response.text())
         .then(result => console.log(result))
         .catch(error => console.log('error', error));
