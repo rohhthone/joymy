@@ -1,0 +1,307 @@
+<!DOCTYPE HTML>
+<html class="void" lang="RU">
+<head>
+  <meta charset="UTF-8">
+  <meta author="Rohh Thone">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>WebPage</title>
+  <meta name="description" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.">
+  <meta name="keywords" content="">
+  <link rel="stylesheet" href="https://rohhthone.github.io/VOID/000001/ro.css"><link rel="stylesheet" href="https://rohhthone.github.io/VOID/000001/variable.css"><link rel="stylesheet" href="https://rohhthone.github.io/VOID/000001/clear.css"><link rel="stylesheet" href="https://rohhthone.github.io/VOID/000001/module.css"><link rel="stylesheet" href="https://rohhthone.github.io/VOID/000001/animation.css">
+  <script type="application/ld+json">{"@type":"Organistaion","name":"WebPage","description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.","url":"","image":"","logo":"","@context":"https://schema.org"}</script>
+</head>
+<body class="matter">
+  <style>
+  :root {--foreground: #050505;--background: #fafafa;--width: 90vw;}body {width: var(--width);}
+  #head, #nav{display: flex;}
+  #head{position: fixed; top: 0;}
+  #nav{justify-content: space-between; align-items: center; height: 64px; min-width: 100vw; background: #000; color: #1ee; box-sizing: border-box; padding: 0 5vw;}
+  #nav>h1,
+  #nav>h2{font-size: 1.5em;}
+
+  html.void{background: #070707; color: var(--background);}
+  #body{background: #111; min-height:100vh; height: auto; margin: 64px 0 0 0;}
+
+  .shop{display: flex; flex-wrap: wrap; justify-content: space-around;}
+  .shop>.product.gallery{width: 100%; height: auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; box-sizing: border-box; padding: 32px; gap: 16px;}
+  .shop>.product.gallery>.product{display: flex; align-items: center; justify-content: space-between;box-sizing: border-box; padding: 16px; flex-direction: column;}
+  .shop>.product.gallery>.product>img{ width: 100%; aspect-ratio: 1/1; object-fit: cover;}
+  .shop>.product.gallery>.product>button{height: 2em;  width: 100%; border-radius: 4px;text-align: center;}
+  .shop>.product.gallery>.product>input{height: 2em;  width: 100%;  text-align: center;}
+
+  @media screen and (max-width:100vh) {
+    .shop>.product.gallery>.product{width: 100%; aspect-ratio: 1/1;}
+  }
+  @media screen and (max-height:100vw) {
+    .shop>.product.gallery>.product{width: 30%; aspect-ratio: 3/4;}
+  }
+
+  h3{font-size: 1em;}
+  .shop>.product.gallery>.product{border: 1px solid #eee4; border-radius: 8px; box-shadow: 0 0 4px 1px #1ee;}
+  .shop>.product.gallery>.product>button{border: 1px solid #eee4; box-shadow: 0 0 0 1px #1ee;}
+  .shop>.product.gallery>.product>button:hover{border: 1px solid #eee4; box-shadow: 0 0 2px 1px #1ee; color: #000;
+  
+    background: linear-gradient(to right, #1ee, #eee);
+    background-size: 400% 100%;
+    animation: gradient 3s cubic-bezier(1, .5, .5, 1) infinite;
+  }
+  
+  .flex{display: flex; white-space: nowrap;width: 100%;text-align: center;align-items: center;justify-content: center;}
+  .comment{width: 100%; font-size: 0.8em; margin: 1em 0;}
+  textarea{font-size: 1em; width: 100%; height:min-content; resize: none; border: none;background-color: transparent;color: #fff;font-weight: 600;outline: none;box-shadow: none;margin: 1em 0 0 0;text-align: center;letter-spacing: 1px;height: 1em;overflow: hidden;}
+
+  .pay{font-weight: 600; color: #1ee; font-size: 1.5em;}
+  span>span{font-weight: 600; color: #1ee; font-size: 1.5em;}
+
+  @keyframes gradient {
+    0% {
+      background-position: 0% 0%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 100%;
+    }
+  }
+  </style>
+  <script>!function(e){var l=function(l){return e.cookie.match(new RegExp("(?:^|; )digiseller-"+l+"=([^;]*)"))},i=l("lang"),s=l("cart_uid"),t=i?"?lang="+i[1]:"",d=s?"&cart_uid="+s[1]:"",r=e.getElementsByTagName("head")[0]||e.documentElement,n=e.createElement("link"),a=e.createElement("script");n.type="text/css",n.rel="stylesheet",n.id="digiseller-css",n.href="//shop.digiseller.ru/xml/store2_css.asp?seller_id=1122573",a.async=!0,a.id="digiseller-js",a.src="//www.digiseller.ru/store2/digiseller-api.js.asp?seller_id=1122573"+t+d,!e.getElementById(n.id)&&r.appendChild(n),!e.getElementById(a.id)&&r.appendChild(a)}(document)</script>
+  <div id="head">
+    <div id="nav">
+      <h1> ENJOY POD </h1>
+      <h2 class="desktop" id="uuid">Undefined</h2>
+    </div>
+  </div>
+  <div id="body">
+    <div class="shop">
+      <div class="product gallery" id="market">
+        <div class="digiseller-buy-standalone" data-id="3541596" data-owner="0" data-lang="" data-img="1" data-img-size="180" data-name="1" data-price="1" data-no-price="0"></div>
+        <!-- <form method="POST" class="product" name="PRODUCT" onsubmit="event.preventDefault();">
+          <img width="" height="" src="https://png.pngtree.com/png-vector/20220730/ourmid/pngtree-vape-smoking-design-2022-png-image_6092862.png" alt="vape model #">
+          <input type="text" name="FLAVOUR" value="Vape №1">
+          <input type="number" name="ID" readonly value="1" hidden>
+          <input type="number" name="COST" readonly value="500" hidden>
+          <button onclick="buy()">Приобрести</button>
+        </form>
+        <form method="POST" class="product" name="PRODUCT" onsubmit="event.preventDefault();">
+          <img width="" height="" src="https://png.pngtree.com/png-vector/20220730/ourmid/pngtree-vape-smoking-design-2022-png-image_6092862.png" alt="vape model #">
+          <input type="text" name="FLAVOUR" value="Vape №1">
+          <input type="number" name="ID" readonly value="1" hidden>
+          <input type="number" name="COST" readonly value="500" hidden>
+          <button onclick="buy()">Приобрести</button>
+        </form>
+        <form method="POST" class="product" name="PRODUCT" onsubmit="event.preventDefault();">
+          <img width="" height="" src="https://png.pngtree.com/png-vector/20220730/ourmid/pngtree-vape-smoking-design-2022-png-image_6092862.png" alt="vape model #">
+          <input type="text" name="FLAVOUR" value="Vape №1">
+          <input type="number" name="ID" readonly value="1" hidden>
+          <input type="number" name="COST" readonly value="500" hidden>
+          <button onclick="buy()">Приобрести</button>
+        </form>
+        <form method="POST" class="product" name="PRODUCT" onsubmit="event.preventDefault();">
+          <img width="" height="" src="https://png.pngtree.com/png-vector/20220730/ourmid/pngtree-vape-smoking-design-2022-png-image_6092862.png" alt="vape model #">
+          <input type="text" name="FLAVOUR" value="Vape №1">
+          <input type="number" name="ID" readonly value="1" hidden>
+          <input type="number" name="COST" readonly value="500" hidden>
+          <button onclick="buy()">Приобрести</button>
+        </form>
+        <form method="POST" class="product" name="PRODUCT" onsubmit="event.preventDefault();">
+          <img width="" height="" src="https://png.pngtree.com/png-vector/20220730/ourmid/pngtree-vape-smoking-design-2022-png-image_6092862.png" alt="vape model #">
+          <input type="text" name="FLAVOUR" value="Vape №1">
+          <input type="number" name="ID" readonly value="1" hidden>
+          <input type="number" name="COST" readonly value="500" hidden>
+          <button onclick="buy()">Приобрести</button>
+        </form>
+        <div method="POST" class="product" name="PRODUCT" onsubmit="event.preventDefault();">
+          <img width="" height="" src="https://png.pngtree.com/png-vector/20220730/ourmid/pngtree-vape-smoking-design-2022-png-image_6092862.png" alt="vape model #">
+          <input type="text" name="FLAVOUR" value="Vape №1">
+          <input type="number" name="ID" readonly value="1" hidden>
+          <input type="number" name="COST" readonly value="500" hidden>
+          <button onclick="buy()">Приобрести</button>
+        </div> -->
+      </div>
+    </div>
+  </div>
+  <footer class="rohh thone privacy"><a href="https://rohh.ru/">rohh</a><a href="https://rohh.ru/privacy">privacy</a></footer>
+  <script>
+    function handleForm(event) {  } 
+    document.addEventListener('submit', handleForm);
+  function buy(){
+  }
+
+  var params = window.location.search.replace('?','').split('&').reduce(
+        function(p,e){
+            var a = e.split('=');
+            p[ decodeURIComponent(a[0])] = decodeURIComponent(a[1]);
+            return p;
+        },
+        {}
+    );
+
+console.log(params.uuid);
+
+  // API
+
+  var machineID = params.uuid;
+  var token = 0;
+  var machineData = '';
+
+  function tokenGet() {
+    var data = new FormData();
+      data.append("userName", "pay_tec");
+
+      var xhr = new XMLHttpRequest();
+      xhr.withCredentials = true;
+
+      xhr.addEventListener("readystatechange", function() {
+        if(this.readyState === 4) {
+          token = this.responseText;
+          console.log(token);
+          machineConnect();
+
+        }
+      });
+
+      xhr.open("POST", "https://tower.etek.fun/api/vendingmachine/token");
+
+      xhr.send(data);
+  }
+
+  function machineConnect() {
+    var data = new FormData();
+
+    var xhr = new XMLHttpRequest();
+    xhr.withCredentials = true;
+
+    xhr.addEventListener("readystatechange", function() {
+      if(this.readyState === 4) {
+        console.log(this.responseText);
+        machineData = this.responseText;
+
+        var data = new FormData();
+
+        var xhr = new XMLHttpRequest();
+        xhr.withCredentials = true;
+
+        xhr.addEventListener("readystatechange", function() {
+          if(this.readyState === 4) {
+            console.log(this.responseText);
+            // select canWork from this.responseText
+            let valueResponse = this.responseText = JSON.parse(this.responseText);
+            console.log(valueResponse.canWork);
+
+            if (valueResponse.canWork == 'true') {
+              console.log('true');
+              startPage();
+            } else {
+              console.log('false');
+            }
+            
+          }
+        });
+
+        xhr.open("GET", `https://tower.etek.fun/api/vendingmachine/canWork?uuid=${machineID}`);
+        xhr.setRequestHeader("token", token);
+
+        xhr.send(data);
+
+        
+      }
+    });
+
+    xhr.open("GET", `https://tower.etek.fun/api/vendingmachine/goods?uuid=${machineID}`);
+    xhr.setRequestHeader("token", token);
+
+    xhr.send(data);
+  }
+
+  
+  // API
+
+  tokenGet();
+
+  function startPage() {
+    uuid.innerHTML = 'ID:' + machineID;
+    var MData = JSON.parse(machineData);
+    console.log(MData.goodsList);
+
+    // market.innerHTML = '';
+    
+    
+
+    // MData.goodsList.forEach(element => {
+    //   let el = element.position;
+      
+      // market.innerHTML += `
+      // <div method="POST" class="product" name="PRODUCT" onsubmit="
+      // event.preventDefault();">
+      //     <img width="" height="" src="https://png.pngtree.com/png-vector/20220730/ourmid/pngtree-vape-smoking-design-2022-png-image_6092862.png" alt="vape model #">
+      //     <input type="text" name="FLAVOUR" value="${el}" hidden>
+      //     <input type="number" name="ID" readonly value="${machineID}" hidden>
+      //     <div class="flex"><span class='pay'>599 рублей</span></div>
+      //     <div class="comment" id="value${el}"></div>
+        
+      //     <button id="change${el}" onclick="
+      //     {
+      //       console.log(this.innerHTML);
+      //       if (this.innerHTML == 'Приобрести') {
+      //         this.innerHTML = 'Скопировать';
+      //         this.style.backgroundColor = 'green';
+      //         this.style.color = 'black';
+      //         value${el}.innerHTML = '<span>Откройте приложение Сбербанка и оплатите по номеру телефона <span>89154761051</span> с комментарием <textarea>${machineID}-${el}</textarea></span>';
+      //       } else {
+      //         this.innerHTML = 'Приобрести';
+      //         this.style.backgroundColor = 'white';
+      //         this.style.color = 'black';
+              
+      //         console.log(value${el}.getElementsByTagName('span')[0].getElementsByTagName('textarea')[0].innerHTML);
+
+      //         value${el}.getElementsByTagName('span')[0].getElementsByTagName('textarea')[0].select();
+      //         value${el}.getElementsByTagName('span')[0].getElementsByTagName('textarea')[0].setSelectionRange(0, 99999);
+
+      //         navigator.clipboard.writeText(value${el}.getElementsByTagName('span')[0].getElementsByTagName('textarea')[0].value);
+
+      //         value${el}.innerHTML = '<span>Скопировано в буфер обмена</span>';
+      //       }
+      //     }
+      //     ">Приобрести</button>
+      //   </div>`;
+
+      // console.log(el);
+      // if(el == 0){
+      // market.innerHTML += '<div class="digiseller-buy-standalone" data-id="3552302" data-owner="0" data-lang="" data-img="1" data-img-size="180" data-name="1" data-price="1" data-no-price="0"></div>'; 
+      // }
+      // if(el == 1){
+      // market.innerHTML += '<div class="digiseller-buy-standalone" data-id="3552302" data-owner="0" data-lang="" data-img="1" data-img-size="180" data-name="1" data-price="1" data-no-price="0"></div>'; 
+      // }
+      // if(el == 2){
+      // market.innerHTML += '<div class="digiseller-buy-standalone" data-id="3552302" data-owner="0" data-lang="" data-img="1" data-img-size="180" data-name="1" data-price="1" data-no-price="0"></div>'; 
+      // }
+      // if(el == 3){
+      // market.innerHTML += '<div class="digiseller-buy-standalone" data-id="3552302" data-owner="0" data-lang="" data-img="1" data-img-size="180" data-name="1" data-price="1" data-no-price="0"></div>'; 
+      // }
+      // if(el == 4){
+      // market.innerHTML += '<div class="digiseller-buy-standalone" data-id="3552301" data-owner="0" data-lang="" data-img="1" data-img-size="180" data-name="1" data-price="1" data-no-price="0"></div>'; 
+      // }
+      // if(el == 5){
+      // market.innerHTML += '<div class="digiseller-buy-standalone" data-id="3548068" data-owner="0" data-lang="" data-img="1" data-img-size="180" data-name="1" data-price="1" data-no-price="0"></div>'; 
+      // }
+      // if(el == 6){
+      // market.innerHTML += '<div class="digiseller-buy-standalone" data-id="3548051" data-owner="0" data-lang="" data-img="1" data-img-size="180" data-name="1" data-price="1" data-no-price="0"></div>'; 
+      // }
+      // if(el == 7){
+      // market.innerHTML += '<div class="digiseller-buy-standalone" data-id="3547675" data-owner="0" data-lang="" data-img="1" data-img-size="180" data-name="1" data-price="1" data-no-price="0"></div>'; 
+      // }
+      // if(el == 8){
+      // market.innerHTML += '<div class="digiseller-buy-standalone" data-id="3541596" data-owner="0" data-lang="" data-img="1" data-img-size="180" data-name="1" data-price="1" data-no-price="0"></div>'; 
+      // }
+
+    // });
+
+  }
+
+
+  
+  </script>
+</body>
+</html>

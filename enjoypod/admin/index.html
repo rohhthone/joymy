@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>管理面板</title>
+</head>
+<body>
+
+  <h1>管理面板</h1>
+  <!-- <form action="#" method="POST" onsubmit="event.preventDefault();">
+    <input type="text" name="username" placeholder="用户名">
+    <input type="password" name="password" placeholder="密码">
+    <input type="submit" value="登录">
+  </form> -->
+
+  <form action="#" method="get" onsubmit="event.preventDefault(); send()">
+    <input type="text" name="uuid" id="uuid" placeholder="UUID" onchange="canIt(this)">
+
+    <select name="goodsid" id="goodsid">
+      
+    </select>
+
+    <input type="text" name="pos" id="pos" placeholder="位置">
+    <input type="submit" id="select" value="查询">
+    <div id="canitwork"></div>
+  </form>
+
+  <script>
+
+
+    
+    function canIt(e) {
+      let uuid = document.getElementById('uuid').value;
+      console.log('working');
+
+      var data = new FormData();
+
+      var xhr = new XMLHttpRequest();
+      xhr.withCredentials = true;
+
+      xhr.addEventListener("readystatechange", function() {
+        if(this.readyState === 4) {
+          console.log(this.responseText);
+
+          console.log(this.responseText);
+          if (!!this.responseText) {
+            document.getElementById("canitwork").innerHTML = "可以使用";
+            document.getElementById("canitwork").style.color = "green";
+            document.getElementById("select").disabled = false;
+            function start() {
+              let uuid = document.getElementById('uuid').value;
+
+              var data = new FormData();
+
+              var xhr = new XMLHttpRequest();
+              xhr.withCredentials = true;
+
+              xhr.addEventListener("readystatechange", function() {
+                if(this.readyState === 4) {
+                  console.log(this.responseText);
+                  let goodsid = JSON.parse(this.responseText);
+                  console.log(goodsid.goodsList);
+                  goodsid.goodsList.forEach(elem => {
+                    console.log(elem);
+                    let option = document.createElement('option');
+                    option.innerHTML = elem.name;
+                    option.value = elem.id;
+                    document.getElementById('goodsid').appendChild(option);
+                  });
+                }
+              });
+
+              xhr.open("GET", `https://tower.etek.fun/api/vendingmachine/goods?uuid=${uuid}`);
+              xhr.setRequestHeader("token", "eyJhbGdzIjoiSFMyNTYiLCJ0eXAiOiJKV1QiLCJ0eXBlIjoiSldUIiwiYWxnIjoiSFMyNTYifQ.eyJ1aWQiOiIxNTk1NzM5MDQwNTM4NzA1OTIwIiwidW5hbWUiOiJwYXlfdGVjIn0.k2I7-q3-tiYfUHveR3hnqTiMfqcyyFux_cM5JuQSPvU");
+
+              xhr.send(data);
+            }
+            start();
+          } else {
+            document.getElementById("canitwork").innerHTML = "UUID长度不正确";
+            document.getElementById("canitwork").style.color = "red";
+            document.getElementById("select").disabled = true;
+          }
+        }
+      });
+
+      console.log(`https://tower.etek.fun/api/vendingmachine/canWork?uuid=${uuid}`);
+      xhr.open("GET", `https://tower.etek.fun/api/vendingmachine/canWork?uuid=${uuid}`);
+      xhr.setRequestHeader("token", "eyJhbGdzIjoiSFMyNTYiLCJ0eXAiOiJKV1QiLCJ0eXBlIjoiSldUIiwiYWxnIjoiSFMyNTYifQ.eyJ1aWQiOiIxNTk1NzM5MDQwNTM4NzA1OTIwIiwidW5hbWUiOiJwYXlfdGVjIn0.k2I7-q3-tiYfUHveR3hnqTiMfqcyyFux_cM5JuQSPvU");
+
+      xhr.send(data);
+    }
+
+    function send() {
+      let uuid = document.getElementById('uuid').value;
+      let pos = document.getElementById('pos').value;
+      let goods = document.getElementById('goodsId').value;
+
+      var data = new FormData();
+      var xhr = new XMLHttpRequest();
+      xhr.withCredentials = true;
+
+      xhr.addEventListener("readystatechange", function() {
+        if(this.readyState === 4) {
+          console.log(this.responseText);
+          replenishment();
+        }
+      });
+
+      xhr.open("POST", `https://tower.etek.fun/api/vendingmachine/operate?uuid=${uuid}&op=0&pos=${pos}`);
+      xhr.setRequestHeader("token", "eyJhbGdzIjoiSFMyNTYiLCJ0eXAiOiJKV1QiLCJ0eXBlIjoiSldUIiwiYWxnIjoiSFMyNTYifQ.eyJ1aWQiOiIxNTk1NzM5MDQwNTM4NzA1OTIwIiwidW5hbWUiOiJwYXlfdGVjIn0.k2I7-q3-tiYfUHveR3hnqTiMfqcyyFux_cM5JuQSPvU");
+
+      xhr.send(data);
+    }
+
+    function replenishment(){
+      let uuid = document.getElementById('uuid').value;
+      let pos = document.getElementById('pos').value;
+      let goods = document.getElementById('goodsId').value;
+
+      var xhr = new XMLHttpRequest();
+      xhr.withCredentials = true;
+
+      xhr.addEventListener("readystatechange", function() {
+        if(this.readyState === 4) {
+          console.log(this.responseText);
+          alert('补货成功');
+        }
+      });
+
+      xhr.open("POST", `https://tower.etek.fun/api/vendingmachine/replenishment?uuid=${uuid}&goodsId=${goodsId}&position=${pos}`);
+      xhr.setRequestHeader("token", "eyJhbGdzIjoiSFMyNTYiLCJ0eXAiOiJKV1QiLCJ0eXBlIjoiSldUIiwiYWxnIjoiSFMyNTYifQ.eyJ1aWQiOiIxNTk2MTYwMDk1OTQyMDk4OTQ0IiwidW5hbWUiOiJwYXlfdGVjIn0.4irrIrDYspXQEr1Lstc23cwUaafNCpgLB1MIjavy_KE");
+
+      xhr.send();
+    }
+    
+  </script>
+</body>
+</html>
