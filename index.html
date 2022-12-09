@@ -395,30 +395,7 @@
           <div class="flex"><span class='pay'>1 рубль</span></div>
           <div class="comment" id="value${el}"></div>
         
-          <button id="change${el}" onclick=" window.location.href = 'https://www.digiseller.market/asp2/pay_wm.asp?id_d=3548068&lang=ru-RUs';
-          {
-            console.log(this.innerHTML);
-            if (this.innerHTML == 'Приобрести') {
-              this.innerHTML = 'Скопировать';
-              this.style.backgroundColor = 'green';
-              this.style.color = 'black';
-              value${el}.innerHTML = '<span>Откройте приложение Сбербанка и оплатите по номеру телефона <span>89154761051</span> с комментарием <textarea>${machineID}-${el}</textarea></span>';
-            } else {
-              this.innerHTML = 'Приобрести';
-              this.style.backgroundColor = 'white';
-              this.style.color = 'black';
-              
-              console.log(value${el}.getElementsByTagName('span')[0].getElementsByTagName('textarea')[0].innerHTML);
-
-              value${el}.getElementsByTagName('span')[0].getElementsByTagName('textarea')[0].select();
-              value${el}.getElementsByTagName('span')[0].getElementsByTagName('textarea')[0].setSelectionRange(0, 99999);
-
-              navigator.clipboard.writeText(value${el}.getElementsByTagName('span')[0].getElementsByTagName('textarea')[0].value);
-
-              value${el}.innerHTML = '<span>Скопировано в буфер обмена</span>';
-            }
-          }
-          ">Приобрести</button>
+          <button id="change${el}" onclick="window.location.href = 'https://www.digiseller.market/asp2/pay_wm.asp?id_d=3547675&lang=ru-RU';">Приобрести</button>
         </div>`;
 
           console.log(el);
