@@ -35,13 +35,9 @@
       console.log(params);
 
       function check() {
-        console.log(params.seller_id);
-        console.log(params.uniquecode);
-        if (params.seller_id != 1122573) {
+        if (!params.uniquecode) {
           return;
         }
-        // if(params.uniquecode != 'F60B65D09480458F'){return}
-        console.log("works");
 
         // API
         var myHeaders = new Headers();
